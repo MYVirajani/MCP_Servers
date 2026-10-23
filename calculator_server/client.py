@@ -10,15 +10,19 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv(override=True)
 
-SERVER = str(Path(__file__).parent / "mcp_calculator_service.py")
-
+SERVER = Path(__file__).parent
 
 MCP_SERVERS = {
     "calculator": {
         "transport": "stdio",
         "command": sys.executable,
-        "args": [SERVER],
-    }
+        "args": [str(HERE / "mcp_calculator_server.py")],
+    },
+    "notes": {
+        "transport": "stdio",
+        "command": sys.executable,
+        "args": [str(HERE / "mcp_notes_server.py")],
+    },
 }
 
 

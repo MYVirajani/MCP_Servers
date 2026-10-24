@@ -16,12 +16,12 @@ MCP_SERVERS = {
     "calculator": {
         "transport": "stdio",
         "command": sys.executable,
-        "args": [str(HERE / "mcp_calculator_server.py")],
+        "args": [str(SERVER / "mcp_calculator_server.py")],
     },
     "notes": {
         "transport": "stdio",
         "command": sys.executable,
-        "args": [str(HERE / "mcp_notes_server.py")],
+        "args": [str(SERVER / "mcp_notes_server.py")],
     },
 }
 

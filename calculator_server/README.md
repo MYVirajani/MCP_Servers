@@ -50,3 +50,35 @@ calculator_server/
  
 - Python 3.10+
 - A Gemini API key from [Google AI Studio](https://aistudio.google.com/)
+
+## Setup
+ 
+```powershell
+# 1. Create and activate a virtual environment
+python -m venv .venv
+.venv\Scripts\Activate.ps1        # macOS/Linux: source .venv/bin/activate
+ 
+# 2. Install dependencies
+pip install -r requirements.txt
+```
+ 
+ 
+Create a `.env` file next to `client.py`:
+ 
+```
+GOOGLE_API_KEY=your_gemini_key_here
+GEMINI_MODEL=your_model_name
+```
+ 
+`GEMINI_MODEL` is optional. Model names change often, so check the current
+ones in Google AI Studio.
+ 
+### requirements.txt
+ 
+```
+mcp>=1.2.0,<2
+langchain>=1.0
+langchain-mcp-adapters
+langchain-google-genai
+python-dotenv
+```

@@ -61,7 +61,9 @@ python -m venv .venv
 # 2. Install dependencies
 pip install -r requirements.txt
 ```
- 
+
+If PowerShell blocks the activate script, run this once:
+`Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
  
 Create a `.env` file next to `client.py`:
  
@@ -82,3 +84,39 @@ langchain-mcp-adapters
 langchain-google-genai
 python-dotenv
 ```
+
+## Usage
+ 
+### 1. Test the server without AI (uses no API quota)
+ 
+```powershell
+python test_client.py
+```
+ 
+This lists the tools and calls a few of them directly.
+ 
+### 2. Chat with the AI
+ 
+```powershell
+python client.py
+```
+ 
+`client.py` launches both servers itself over stdio, so you don't need
+separate terminals. Example session:
+ 
+```
+Connected. Tools: add, subtract, multiply, divide, power, square_root, add_note, ...
+You: what is 15% of 2480, then its square root?
+  [tool call] multiply({'b': 2480, 'a': 0.15})
+  [tool result] 372.0
+  [tool call] square_root({'x': 372})
+  [tool result] 19.28730152198591
+AI: 15% of 2,480 is **372**.
+
+The square root of 372 is approximately **19.29** (or `19.28730152198591`).
+ 
+You: save a note: buy milk tomorrow
+You: what notes do I have about milk?
+```
+ 
+Type `exit` to quit.

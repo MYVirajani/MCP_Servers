@@ -32,3 +32,21 @@ You ──► client.py ──► Gemini (decides which tool to use)
  
 Notes are saved to `notes.json`, because the client may start a fresh server
 process for each tool call, so in-memory variables would be lost.
+
+## Project structure
+ 
+```
+calculator_server/
+├── calculator_server.py   # MCP server: math tools
+├── notes_server.py        # MCP server: notes with file storage
+├── client.py              # Terminal AI chat client (LangChain + Gemini)
+├── test_client.py         # Plain MCP client, no AI, for testing the server
+├── requirements.txt
+├── .env                   # Your API key (never commit this)
+└── .gitignore
+```
+ 
+## Requirements
+ 
+- Python 3.10+
+- A Gemini API key from [Google AI Studio](https://aistudio.google.com/)

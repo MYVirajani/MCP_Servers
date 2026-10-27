@@ -1,2 +1,6 @@
 mcp>=1.2.0,<2
 httpx
+langchain>=1.0
+langchain-mcp-adapters
+langchain-google-genai
+python-dotenv
